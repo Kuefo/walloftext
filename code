@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1920px,initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="/discord-splitter/favicon.ico?">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Discord Wall of Text Splitter</title>
+    </head>
+    <body>
+        <h3>Discord Wall of Text Splitter</h3>
+        <p>Put your wall of text here</p>
+        <div>
+            <textarea id="the_box" cols="120" scrollbar="true" rows="25" style="font-family:Monaco,'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Geneva,Verdana,sans-serif;font-size:14pt"></textarea>
+        </div>
+        <button id="the_but" onclick="split_it()" style="background-color:#599bb3;border-radius:5px;border:1px solid #29668f;display:inline-block;cursor:pointer;color:#fff;font-family:Arial;font-size:15px;font-weight:700;padding:11px 23px">SPLIT ME</button>
+        <div id="splitted"></div>
+    </body>
+    <script>
+        let text = document.getElementById('the_box')
+          , contents = null
+          , num_splits = 0
+          , results = document.getElementById('splitted');
+        function split_it() {
+            contents = text.value,
+            num_splits = Math.ceil(contents.length / 1990);
+            let a = 0
+              , b = 0
+              , c = 0;
+            for (results.innerHTML = '<h3> Your text was split into ' + num_splits + ' sections:'; num_splits != a; )
+                b = contents.lastIndexOf(' ', 1990 * ++a),
+                results.innerHTML += '<p>' + contents.substring(c, b) + '</p>',
+                c = b + 1
+        }
+    </script>
+</html>
